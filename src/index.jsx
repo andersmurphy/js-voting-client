@@ -6,6 +6,7 @@ import Voting from './components/Voting'
 import Results from './components/Results'
 import {createStore} from 'redux'
 import reducer from './reducer'
+import {Provider} from 'react-redux'
 
 const store = createStore(reducer)
 store.dispatch({
@@ -24,6 +25,8 @@ const routes = <Route component={App}>
 </Route>
 
 ReactDOM.render(
-  <Router history={hashHistory}>{routes}</Router>,
-    document.getElementById('app')
+  <Provider store={store}>
+    <Router history={hashHistory}>{routes}</Router>,
+  </Provider>,
+  document.getElementById('app')
 )
