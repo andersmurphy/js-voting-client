@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {Route, Router, hashHistory} from 'react-router'
 import App from './components/App'
-import Results from './components/Results'
+import {ResultsContainer} from './components/Results'
 import {createStore} from 'redux'
 import reducer from './reducer'
 import {Provider} from 'react-redux'
@@ -20,7 +20,7 @@ store.dispatch({
 })
 
 const routes = <Route component={App}>
-  <Route path="/results" component={Results} />
+  <Route path="/results" component={ResultsContainer} />
   <Route path="/" component={VotingContainer} />
 </Route>
 
