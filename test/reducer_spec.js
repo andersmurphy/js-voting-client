@@ -128,4 +128,26 @@ describe('reducer', () => {
       }
     }))
   })
+
+  it('unspecified actions dont change the state', () => {
+    const initalState = fromJS({
+      vote: {
+        pair: ['Trainspotting', '28 Days Later'],
+        tally: {Trainspotting: 1}
+      },
+      hasVoted: 'Trainspotting'
+    })
+    const action = {
+      type: "UNSPECIFIED"
+    }
+    const nextState = reducer(initalState, action)
+
+    expect(nextState).to.equal(fromJS({
+      vote: {
+        pair: ['Trainspotting', '28 Days Later'],
+        tally: {Trainspotting: 1}
+      },
+      hasVoted: 'Trainspotting'
+    }))
+  })
 })
